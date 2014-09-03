@@ -103,18 +103,21 @@ div#icon-tooltip {
 }
 
 /* Part 3: Content pages */
-/*
-The body and div#meta styles are shared with the home page.
-*/
 div#navigation {
+	position: absolute;
+	top: 30px;
+	left: 240px;
 	text-align: center;
 	width: 100%;
-	border: 1px solid red;
+	max-width: 440px;
 }
 div#navigation img {
 	margin: 5px;
-	width: 50px;
+	width: 75px;
 	height: auto;
+}
+span.section {
+	display: inline-block;
 }
 
 

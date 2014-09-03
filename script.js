@@ -14,11 +14,22 @@ $(document).ready(function() {
 		$(this).stop().animate({
 			height: "30px"
 		});
+	}).click(function() {
+		if ($(this).css("height") == "30px") {
+			$(this).stop().animate({
+				height: "75px"
+			});
+		} else {
+			$(this).stop().animate({
+				height: "30px"
+			});
+		}
 	});
 
 	//Have the box "shine" every few seconds until rollover
 	t = setTimeout(function() { metaBoxShine(); }, 5000);
 
+	/* Home page */
 	//Icon tooltip
 	$("div.icon-container img").hover(function() {
 		$("div#icon-tooltip").stop().html($(this).attr("id").replace('-', ' '));
@@ -31,8 +42,18 @@ $(document).ready(function() {
 		$("div#icon-tooltip").stop().fadeOut();
 	});
 
-	/* Home page */
 	/* Content pages */
+	//Move navigation if small screen (mimic CSS float)
+	if ($(window).width() < $("div#navigation").width() + $("div#navigation").position().left) {
+		$("div#navigation").css({
+			position: "initial",
+			marginTop: "20px"
+		});
+		$("div#meta").css({
+			position: "initial",
+			marginTop: "40px"
+		});
+	}
 });
 
 //Function to "shine" the meta info box
