@@ -54,9 +54,9 @@ body {
 	background-color: #F2F2F2;
 	font-family: Calibri, "Helvetica Neue", Helvetica, sans;
 }
-div#meta {
+div.metabox {
 	position: absolute;
-	top: 40px;
+	top: 20px;
 	left: 0px;
 	width: auto;
 	padding: 15px 15px 15px 30px;
@@ -66,7 +66,7 @@ div#meta {
 	-webkit-box-shadow: 2px 2px 2px 2px #E2E2E2;
 	box-shadow: 2px 2px 2px 2px #E2E2E2;
 }
-div#meta h1 {
+div.metabox h1 {
 	font-size: 30px;
 	padding-bottom: 15px;
 }
@@ -103,9 +103,15 @@ div#icon-tooltip {
 }
 
 /* Part 3: Content pages */
+/* Some metabox styles are shared with the homepage. */
+div.metabox h2 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
 div#navigation {
 	position: absolute;
-	top: 30px;
+	top: 25px;
 	left: 240px;
 	text-align: center;
 	width: 100%;

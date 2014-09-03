@@ -1,10 +1,14 @@
 var t, metaBoxVisited = false;
 $(document).ready(function() {
 	/* Meta info box */
+	//Have the meta box "shine" every few seconds until rollover
+	t = setTimeout(function() { metaBoxShine(); }, 5000);
+
+	/* Home page */
 	//Animate rollover for meta info box
-	$("div#meta").css({
+	$("div#meta-index").css({
 		height: "30px",
-		width: ($("div#meta").width() + 1) + "px"
+		width: ($("div#meta-index").width() + 1) + "px"
 	}).hover(function() {
 		metaBoxVisited = true;
 		$(this).stop().animate({
@@ -26,10 +30,6 @@ $(document).ready(function() {
 		}
 	});
 
-	//Have the box "shine" every few seconds until rollover
-	t = setTimeout(function() { metaBoxShine(); }, 5000);
-
-	/* Home page */
 	//Icon tooltip
 	$("div.icon-container img").hover(function() {
 		$("div#icon-tooltip").stop().html($(this).attr("id").replace('-', ' '));
@@ -43,15 +43,40 @@ $(document).ready(function() {
 	});
 
 	/* Content pages */
+	//Animate rollover for meta info box
+	$("div#meta-content").css({
+		height: "65px",
+		width: ($("div#meta-content").width() + 1) + "px"
+	}).hover(function() {
+		metaBoxVisited = true;
+		$(this).stop().animate({
+			height: "108px"
+		});
+	}, function() {
+		$(this).stop().animate({
+			height: "65px"
+		});
+	}).click(function() {
+		if ($(this).css("height") == "65px") {
+			$(this).stop().animate({
+				height: "108px"
+			});
+		} else {
+			$(this).stop().animate({
+				height: "65px"
+			});
+		}
+	});
+
 	//Move navigation if small screen (mimic CSS float)
 	if ($(window).width() < $("div#navigation").width() + $("div#navigation").position().left) {
-		$("div#navigation").css({
+		$("div#meta-content").css({
 			position: "initial",
 			marginTop: "20px"
 		});
-		$("div#meta").css({
+		$("div#navigation").css({
 			position: "initial",
-			marginTop: "40px"
+			marginTop: "20px"
 		});
 	}
 });
@@ -59,7 +84,7 @@ $(document).ready(function() {
 //Function to "shine" the meta info box
 function metaBoxShine() {
 	if (metaBoxVisited == false) {
-		$("div#meta").animate({
+		$("div.metabox").animate({
 			width: "+=10"
 		}, { complete: function() {
 			$(this).animate({
