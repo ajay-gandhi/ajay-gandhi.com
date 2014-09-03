@@ -18,6 +18,19 @@ $(document).ready(function() {
 
 	//Have the box "shine" every few seconds until rollover
 	t = setTimeout(function() { metaBoxShine(); }, 5000);
+
+	//Icon tooltip
+	$("div.icon-container img").hover(function() {
+		$("div#icon-tooltip").stop().html($(this).attr("id").replace('-', ' '));
+		$("div#icon-tooltip").css({
+			top: $(this).position().top + $(this).height() + 10 + "px",
+			left: $(this).position().left + ($(this).width() / 2) - ($("div#icon-tooltip").width() / 2) - 10 + "px"
+		});
+		$("div#icon-tooltip").fadeIn();
+	}, function() {
+		$("div#icon-tooltip").stop().fadeOut();
+	});
+
 	/* Home page */
 	/* Content pages */
 });

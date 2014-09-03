@@ -51,7 +51,7 @@ table {
 
 /* Part 2: Home page */
 body {
-	background-color: #F5F5DC;
+	background-color: #F2F2F2;
 	font-family: Calibri, "Helvetica Neue", Helvetica, sans;
 }
 div#meta {
@@ -62,9 +62,9 @@ div#meta {
 	padding: 15px 15px 15px 30px;
 	overflow: hidden;
 	background-color: #FFFFFF;
-	-moz-box-shadow: 2px 2px 2px 6px #ccc;
-	-webkit-box-shadow: 3px 3px 5px 6px #ccc;
-	box-shadow: 2px 2px 2px 2px #E1E1C8;
+	-moz-box-shadow: 2px 2px 2px 2px #E2E2E2;
+	-webkit-box-shadow: 2px 2px 2px 2px #E2E2E2;
+	box-shadow: 2px 2px 2px 2px #E2E2E2;
 }
 div#meta h1 {
 	font-size: 30px;
@@ -84,6 +84,22 @@ div.icon-container {
 div.icon-container img {
 	width: 125px;
 	height: auto;
+}
+div#icon-tooltip {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	overflow: hidden;
+	background-color: black;
+	border-radius: 10px;
+	width: auto;
+	height: 30px;
+	color: #FFFFFF;
+	padding: 10px 10px 0px 10px;
+	font-size: 20px;
+	font-family: Helvetica;
+	white-space: nowrap;
 }
 
 /* Part 3: Content pages */
