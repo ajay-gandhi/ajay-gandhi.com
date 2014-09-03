@@ -1,0 +1,42 @@
+/* CSS for main page */
+body {
+	background-color: #F5F5DC;
+	overflow: hidden;
+}
+
+/* Icon Layout */
+div#icon-wrapper {
+	text-align: center;
+}
+div.icon-container {
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+}
+img.icon {
+	vertical-align: middle;
+	width: 100px;
+	height: 100px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+	cursor: pointer;
+}
+div#icon-tooltip {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	overflow: hidden;
+	background-color: black;
+	border-radius: 10px;
+	width: auto;
+	height: 30px;
+	color: #FFFFFF;
+	padding: 10px 10px 0px 10px;
+	font-size: 20px;
+	font-family: Helvetica;
+	white-space: nowrap;
+}
