@@ -60,6 +60,7 @@ div#meta {
 	left: 0px;
 	width: auto;
 	padding: 15px 15px 15px 30px;
+	overflow: hidden;
 	background-color: #FFFFFF;
 	-moz-box-shadow: 2px 2px 2px 6px #ccc;
 	-webkit-box-shadow: 3px 3px 5px 6px #ccc;
@@ -67,7 +68,7 @@ div#meta {
 }
 div#meta h1 {
 	font-size: 30px;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 }
 div#icon-wrapper {
 	position: relative;
@@ -84,3 +85,27 @@ div.icon-container img {
 	width: 125px;
 	height: auto;
 }
+
+/* Part 3: Content pages */
+/*
+The body and div#meta styles are shared with the home page.
+*/
+div#navigation {
+	text-align: center;
+	width: 100%;
+	border: 1px solid red;
+}
+div#navigation img {
+	margin: 5px;
+	width: 50px;
+	height: auto;
+}
+
+
+
+
+
+
+
+
+
