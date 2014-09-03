@@ -5,13 +5,13 @@ $(document).ready(function() {
 	$("div#meta").css({
 		height: "30px",
 		width: ($("div#meta").width() + 1) + "px"
-	}).stop().hover(function() {
+	}).hover(function() {
 		metaBoxVisited = true;
-		$(this).animate({
+		$(this).stop().animate({
 			height: "75px"
 		});
 	}, function() {
-		$(this).animate({
+		$(this).stop().animate({
 			height: "30px"
 		});
 	});
