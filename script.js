@@ -1,4 +1,5 @@
 var t, metaBoxVisited = false;
+var navLeftDistance;
 $(document).ready(function() {
 	/* Meta info box */
 	//Have the meta box "shine" every few seconds until rollover
@@ -69,7 +70,8 @@ $(document).ready(function() {
 	});
 
 	//Move navigation if small screen (mimic CSS float)
-	if ($(window).width() < $("div#navigation").width() + $("div#navigation").position().left) {
+	navLeftDistance = $("div#navigation").width() + $("div#navigation").position().left;
+	if ($(window).width() < navLeftDistance) {
 		$("div#meta-content").css({
 			position: "initial",
 			marginTop: "20px"
@@ -79,6 +81,28 @@ $(document).ready(function() {
 			marginTop: "20px"
 		});
 	}
+	//Also do ^ on window resize
+	$(window).resize(function() {
+		if ($(window).width() < navLeftDistance) {
+			$("div#meta-content").css({
+				position: "initial",
+				marginTop: "20px"
+			});
+			$("div#navigation").css({
+				position: "initial",
+				marginTop: "20px"
+			});
+		} else {
+			$("div#meta-content").css({
+				position: "absolute",
+				marginTop: "0px"
+			});
+			$("div#navigation").css({
+				position: "absolute",
+				marginTop: "0px"
+			});
+		}
+	});
 });
 
 //Function to "shine" the meta info box
