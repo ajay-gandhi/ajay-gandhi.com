@@ -1,8 +1,8 @@
 /*
-This CSS file contains 3 parts:
-	CSS Reset
-	Home page styling
-	Content page styling
+ * This CSS file contains 3 parts:
+ *   CSS Reset
+ *   Home page styling
+ *   Content page styling
 */
 
 /* Part 1: CSS Reset */
@@ -19,111 +19,87 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Part 2: Home page */
 body {
-	background-color: #F2F2F2;
-	font-family: Calibri, "Helvetica Neue", Helvetica, sans;
+  background-color: #F2F2F2;
+  font-family: Calibri, "Helvetica Neue", Helvetica, sans;
 }
-div.metabox {
-	position: absolute;
-	top: 20px;
-	left: 0px;
-	width: auto;
-	padding: 15px 15px 15px 30px;
-	overflow: hidden;
-	background-color: #FFFFFF;
-	-moz-box-shadow: 2px 2px 2px 2px #E2E2E2;
-	-webkit-box-shadow: 2px 2px 2px 2px #E2E2E2;
-	box-shadow: 2px 2px 2px 2px #E2E2E2;
+div#metabox {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  width: auto;
+  padding: 15px 15px 15px 30px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  -moz-box-shadow: 2px 2px 2px 2px #E2E2E2;
+  -webkit-box-shadow: 2px 2px 2px 2px #E2E2E2;
+  box-shadow: 2px 2px 2px 2px #E2E2E2;
 }
-div.metabox h1 {
-	font-size: 30px;
-	padding-bottom: 15px;
+div#metabox h1 {
+  font-size: 30px;
+  padding-bottom: 15px;
 }
 div#icon-wrapper {
-	position: relative;
-	top: 100px;
-	margin-top: 15%;
-	text-align: center;
-	width: 100%;
+  position: relative;
+  top: 100px;
+  margin-top: 15%;
+  text-align: center;
+  width: 100%;
 }
 div.icon-container {
-	display: inline-block;
-	padding: 20px 40px;
+  display: inline-block;
+  padding: 20px 40px;
 }
 div.icon-container img {
-	width: 125px;
-	height: auto;
+  width: 125px;
+  height: auto;
 }
 div#icon-tooltip {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: none;
-	overflow: hidden;
-	background-color: black;
-	border-radius: 10px;
-	width: auto;
-	height: 30px;
-	color: #FFFFFF;
-	padding: 10px 10px 0px 10px;
-	font-size: 20px;
-	font-family: Helvetica;
-	white-space: nowrap;
-}
-
-/* Part 3: Content pages */
-/* Some metabox styles are shared with the homepage. */
-div.metabox h2 {
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-div#navigation {
-	position: absolute;
-	top: 25px;
-	left: 240px;
-	text-align: center;
-	width: 100%;
-	max-width: 450px;
-}
-div#navigation img {
-	margin: 5px;
-	width: 75px;
-	height: auto;
-}
-span.section {
-	display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  overflow: hidden;
+  background-color: black;
+  border-radius: 10px;
+  width: auto;
+  height: 30px;
+  color: #FFFFFF;
+  padding: 10px 10px 0px 10px;
+  font-size: 20px;
+  font-family: Helvetica;
+  white-space: nowrap;
 }
 
 
