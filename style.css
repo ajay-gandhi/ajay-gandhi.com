@@ -5,7 +5,9 @@
  *   Content page styling
 */
 
-/* Part 1: CSS Reset */
+/**
+ * Part 1: CSS Reset
+ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -49,7 +51,9 @@ table {
   border-spacing: 0;
 }
 
-/* Part 2: Home page */
+/**
+ * Part 2: Home page
+ */
 body {
   background-color: #F2F2F2;
   font-family: Calibri, "Helvetica Neue", Helvetica, sans;
@@ -102,6 +106,31 @@ div#icon-tooltip {
   white-space: nowrap;
 }
 
+/**
+ * Part 3: Content pages
+ */
+div#nav-menu {
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border-top-left-radius: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  padding: 2px;
+  border-top: 3px solid #CDCDCD;
+  border-left: 3px solid #CDCDCD;
+  cursor: pointer;
+}
+div.nav-item img {
+  width: 70px;
+  height: auto;
+  margin: 5px;
+}
+div.nav-item {
+  position: absolute;
+}
 
 
 
