@@ -117,7 +117,7 @@ div#nav-menu {
   bottom: 0;
   right: 0;
   width: 80px;
-  height: 80px;
+  height: 81px;
   padding: 2px;
   border-top: 3px solid #CDCDCD;
   border-left: 3px solid #CDCDCD;
@@ -143,6 +143,35 @@ div#nav-hide {
   font-size: 20px;
   border-top-left-radius: 7px;
   cursor: pointer;
+}
+
+div#main-wrapper {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+}
+div#main {
+  margin: 100px 10px 40px 10px;
+  background-color: #FFFFFF;
+  padding: 30px 20px;
+  border: 1px solid #DEDEDE;
+  -moz-box-shadow: 2px 2px 2px 2px #E2E2E2;
+  -webkit-box-shadow: 2px 2px 2px 2px #E2E2E2;
+  box-shadow: 2px 2px 2px 2px #E2E2E2;
+}
+span#heading {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 0px 20px;
+}
+span#subheading {
+  font-size: 20px;
+  font-style: italic;
+}
+span#content {
+  line-height: 1.5em;
 }
 
 

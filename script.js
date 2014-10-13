@@ -136,7 +136,7 @@ $(document).ready(function() {
       // Shorten the actual menu
       $('div#nav-menu')
         .animate({
-          height: '80px',
+          height: '81px',
           paddingTop: '2px'
         }, {
           duration: 410,
