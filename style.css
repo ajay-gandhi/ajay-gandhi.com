@@ -131,6 +131,19 @@ div.nav-item img {
 div.nav-item {
   position: absolute;
 }
+div#nav-hide {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 84px;
+  height: 19px;
+  padding-bottom: 4px;
+  text-align: center;
+  font-family: Arial;
+  font-size: 20px;
+  border-top-left-radius: 7px;
+  cursor: pointer;
+}
 
 
 

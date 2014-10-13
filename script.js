@@ -22,7 +22,7 @@ $(document).ready(function() {
     $(this).stop().animate({
       height: '30px'
     });
-  });
+  })
 
   // Activate on-click too for mobile users
   .click(function() {
@@ -42,12 +42,14 @@ $(document).ready(function() {
    */
   // Icon tooltip
   $('div.icon-container img').hover(function() {
-    $('div#icon-tooltip').stop().html($(this).attr('id').replace('-', ' '));
-    $('div#icon-tooltip').css({
-      top: $(this).position().top + $(this).height() + 10 + 'px',
-      left: $(this).position().left + ($(this).width() / 2) - ($('div#icon-tooltip').width() / 2) - 10 + 'px'
-    });
-    $('div#icon-tooltip').fadeIn();
+    $('div#icon-tooltip')
+      .stop()
+      .text($(this).attr('id').replace('-', ' '))
+      .css({
+        top: $(this).position().top + $(this).height() + 10 + 'px',
+        left: $(this).position().left + ($(this).width() / 2) - ($('div#icon-tooltip').width() / 2) - 10 + 'px'
+      })
+      .fadeIn();
   }, function() {
     $('div#icon-tooltip').stop().fadeOut();
   });
@@ -82,25 +84,27 @@ $(document).ready(function() {
   // Rollover for navi menu
   $('div#nav-menu').hover(function() {
     if (isViewingNav == false) {
-      $('div#nav-menu').animate({
-        paddingTop: '+=10'
+      $('div#nav-menu').stop().animate({
+        paddingTop: '+=25'
       });
     }
   }, function() {
     if (isViewingNav == false) {
-      $('div#nav-menu').animate({
-        paddingTop: '-=10'
+      $('div#nav-menu').stop().animate({
+        paddingTop: '-=25'
       });
     }
   });
 
-  // Click actions to expand and contract nav menu
+  // Click actions to expand nav menu
   $('div#nav-menu').click(function() {
     if (isViewingNav == false) {
       isViewingNav = true;
+
+      // Expand the menu itself
       $('div#nav-menu')
         .animate({
-          height: '405px',
+          height: '425px',
           paddingTop: '2px'
         })
         .css('cursor', 'default');
@@ -111,9 +115,51 @@ $(document).ready(function() {
           bottom: (index * 80) + 'px'
         });
       });
+
       // Navi menu is open now, so give the navi icon its
       // URL back
       $('div.nav-item.current a').attr('href', link);
+      $('div#nav-hide').html('&or;&nbsp;');
+    }
+  });
+
+  // Hover for nav menu hide button
+  $('div#nav-hide').hover(function() {
+    $(this).css('background-color', '#EEEEEE');
+  }, function() {
+    $(this).css('background-color', '#FFFFFF');
+  });
+
+  // Contract nav menu on button click
+  $('div#nav-hide').click(function() {
+    if (isViewingNav) {
+      // Shorten the actual menu
+      $('div#nav-menu')
+        .animate({
+          height: '80px',
+          paddingTop: '2px'
+        }, {
+          duration: 410,
+          complete: function() {
+            isViewingNav = false;
+          }
+        })
+        .css('cursor', 'pointer');
+
+      // Hide the other navi items
+      $('div.nav-item').not('.current').animate({
+        bottom: '-80px',
+        right: '1px'
+      });
+
+      $('div.nav-item.current').animate({
+        bottom: '0px',
+        right: '1px'
+      });
+
+      // Navi menu is closed now, so remove the navi's URL
+      $('div.nav-item.current a').removeAttr('href');
+      $('div#nav-hide').html('&and;&nbsp;');
     }
   });
 });
