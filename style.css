@@ -84,6 +84,8 @@ div#icon-wrapper {
 div.icon-container {
   display: inline-block;
   padding: 20px 40px;
+  width: 125px;
+  height: 125px;
 }
 div.icon-container img {
   width: 125px;

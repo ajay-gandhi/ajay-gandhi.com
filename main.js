@@ -1,10 +1,17 @@
 var t, metaBoxVisited = false;
-var navLeftDistance;
 
 $(document).ready(function() {
   /**
    * Meta info box
    */
+  // Slide the meta box in at the outset
+  $('div#metabox')
+    .css('left', '-220px')
+    .delay(500)
+    .animate({
+      left: '0px'
+    }, 'slow');
+
   // Have the meta box 'shine' every few seconds until rollover
   t = setTimeout(function() { metaBoxShine(); }, 5000);
 
@@ -122,16 +129,17 @@ $(document).ready(function() {
                   bottom: '0px',
                   right: '-100px'
                 })
-                .unwrap()
-                .animate({
-                  bottom: '0px',
-                  right: '0px'
-                }, {
-                  complete: function() {
-                    // Load content.js now that we are on a content page
-                    $.getScript('content.js');
-                  }
-                });
+                .unwrap();
+              $('div.nav-item').not('.current').css('bottom', '-80px');
+              $('div#nav-menu').animate({
+                bottom: '0px',
+                right: '0px'
+              }, {
+                complete: function() {
+                  // Load content.js now that we are on a content page
+                  $.getScript('content.js');
+                }
+              });
             });
 
           // At the same time as navi, slide in the content
