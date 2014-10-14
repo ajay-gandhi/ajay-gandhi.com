@@ -14,10 +14,19 @@ $(document).ready(function() {
     width: ($('div#metabox').width() + 1) + 'px'
   }).hover(function() {
     metaBoxVisited = true;
+    // Only move main if it is underneath meta box
+    if ($(window).width() < ($('div#metabox').outerWidth() * 2) + 790) {
+      $('div#main').stop().animate({
+        marginTop: '145px'
+      });
+    }
     $(this).stop().animate({
       height: '75px'
     });
   }, function() {
+    $('div#main').stop().animate({
+      marginTop: '100px'
+    });
     $(this).stop().animate({
       height: '30px'
     });
@@ -26,10 +35,20 @@ $(document).ready(function() {
   // Activate on-click too for mobile users
   .click(function() {
     if ($(this).css('height') == '30px') {
+      metaBoxVisited = true;
+      // Only move main if it is underneath meta box
+      if ($(window).width() < ($('div#metabox').outerWidth() * 2) + 790) {
+        $('div#main').stop().animate({
+          marginTop: '145px'
+        });
+      }
       $(this).stop().animate({
         height: '75px'
       });
     } else {
+      $('div#main').stop().animate({
+        marginTop: '100px'
+      });
       $(this).stop().animate({
         height: '30px'
       });
