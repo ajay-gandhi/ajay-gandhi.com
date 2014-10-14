@@ -1,62 +1,8 @@
-var t, metaBoxVisited = false;
-var navLeftDistance;
-var isViewingNav = false, link;
-
+var link, isViewingNav = false;
+/**
+ * Content page interactions
+ */
 $(document).ready(function() {
-  /**
-   * Meta info box
-   */
-  // Have the meta box 'shine' every few seconds until rollover
-  t = setTimeout(function() { metaBoxShine(); }, 5000);
-
-  // Animate rollover for meta info box
-  $('div#metabox').css({
-    height: '30px',
-    width: ($('div#metabox').width() + 1) + 'px'
-  }).hover(function() {
-    metaBoxVisited = true;
-    $(this).stop().animate({
-      height: '75px'
-    });
-  }, function() {
-    $(this).stop().animate({
-      height: '30px'
-    });
-  })
-
-  // Activate on-click too for mobile users
-  .click(function() {
-    if ($(this).css('height') == '30px') {
-      $(this).stop().animate({
-        height: '75px'
-      });
-    } else {
-      $(this).stop().animate({
-        height: '30px'
-      });
-    }
-  });
-
-  /**
-   * Home page interactions
-   */
-  // Icon tooltip
-  $('div.icon-container img').hover(function() {
-    $('div#icon-tooltip')
-      .stop()
-      .text($(this).attr('id').replace('-', ' '))
-      .css({
-        top: $(this).position().top + $(this).height() + 10 + 'px',
-        left: $(this).position().left + ($(this).width() / 2) - ($('div#icon-tooltip').width() / 2) - 10 + 'px'
-      })
-      .fadeIn();
-  }, function() {
-    $('div#icon-tooltip').stop().fadeOut();
-  });
-
-  /**
-   * Content page interactions
-   */
   // Hide all nav items except the one related to the current page
   $('div.nav-item').not('.current').css({
     bottom: '-80px',
@@ -163,19 +109,3 @@ $(document).ready(function() {
     }
   });
 });
-
-/**
- * Shines the meta information box every few seconds
- */
-function metaBoxShine() {
-  if (metaBoxVisited == false) {
-    $('div#metabox').animate({
-      width: '+=10'
-    }, { complete: function() {
-      $(this).animate({
-        width: '-=10'
-      });
-    }});
-    t = setTimeout(function() { metaBoxShine(); }, 5000);
-  }
-}
