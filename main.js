@@ -1,6 +1,5 @@
 var t, metaBoxVisited = false;
 var navLeftDistance;
-var isViewingNav = false, link;
 
 $(document).ready(function() {
   /**
@@ -59,16 +58,21 @@ $(document).ready(function() {
   if (history.pushState) {
     var which, title;
 
-    // Disable scrolling until everything is visible
-    $('body').css('overflow', 'hidden');
-
-    // When any image is clicked, slide them all to the
-    // right and then remove them
+    // When any image is clicked on the home page,
+    // slide them all to the right and then remove them
     $('div.icon-container a').click(function(e) {
+      e.preventDefault();
+
       // Store which link was clicked
       which = $(this).attr('href');
       title = $(this).attr('title');
-      e.preventDefault();
+
+      // Disable scrolling until everything is visible,
+      // then scroll to the top
+      $('body').css('overflow', 'hidden');
+      $('html, body').animate({
+        scrollTop: 0
+      });
 
       // Sliiiiide to the right
       $('div#icon-wrapper').animate({

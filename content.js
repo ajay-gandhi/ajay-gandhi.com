@@ -108,4 +108,73 @@ $(document).ready(function() {
       $('div#nav-hide').html('&and;&nbsp;');
     }
   });
+
+  // If pushstate is supported, do animations
+  // instead of loading new pages entirely
+  if (history.pushState) {
+    var which, title, clicked;
+    // When any image is clicked on a content page,
+    // hide the navigation tray and swap contents
+    $('div.nav-item').not('.exclude').children('a').click(function(e) {
+      // Do nothing unless nav menu is up
+      if (isViewingNav) {
+        e.preventDefault();
+
+        // Store which link was clicked
+        clicked = $(this);
+        which = $(this).attr('href');
+        title = $(this).attr('title');
+
+        // Disable scrolling until everything is visible,
+        // then scroll to the top
+        $('body').css('overflow', 'hidden');
+        $('html, body').animate({
+          scrollTop: 0
+        });
+
+        // Minimize navi menu and change current nav item
+        $('div.nav-item.current').removeClass('current');
+        clicked.parent('div.nav-item').addClass('current');
+        $('div#nav-hide').trigger('click');
+
+        // Add a new click event for the current nav item
+        $('div.nav-item.current').click(function(e) {
+          if (isViewingNav == false) {
+            // Display the navi menu
+            e.preventDefault();
+            $('div#nav-menu').trigger('click');
+          }
+        });
+
+        // At the same time as navi, slide the old content
+        // down, and the new content up from the bottom
+        $('div#main-wrapper')
+          .animate({
+            marginTop: $(window).height() + 50 + 'px'
+          })
+          // Load new content
+          .load('hobbies.html div#main', function() {
+            // Animate decreasing of margins to slide
+            // content back up
+            $(this).animate({
+              marginTop: '0px'
+            }, {
+              // Vary duration of animation based on window height
+              duration: $(window).height(),
+              complete: function() {
+                // Allow scrolling once animation completes
+                $('body').css('overflow', 'auto');
+                document.title = title + ' | Ajay Gandhi';
+
+                // Create a state object to pass to pushstate
+                // (just needed for syntax, important
+                // part is the last param)
+                var state = { page: which };
+                history.pushState(state, title, which);
+              }
+            });
+          });
+      }
+    });
+  }
 });
