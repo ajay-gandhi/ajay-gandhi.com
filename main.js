@@ -6,11 +6,11 @@ $(document).ready(function() {
    */
   // Slide the meta box in at the outset
   $('div#metabox')
-    .css('left', '-220px')
+    .css('left', '-' + ($('div#metabox').outerWidth() + 20) + 'px')
     .delay(500)
     .animate({
       left: '0px'
-    }, 'slow');
+    }, 750);
 
   // Have the meta box 'shine' every few seconds until rollover
   t = setTimeout(function() { metaBoxShine(); }, 5000);
@@ -104,7 +104,7 @@ $(document).ready(function() {
       $('div#icon-wrapper').animate({
         marginLeft: '+=' + $(window).width()
       }, {
-        duration: 1000,
+        duration: $(window).width(),
         complete: function() {
           // Delete the whole container
           $(this).remove();
