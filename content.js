@@ -76,7 +76,7 @@ $(document).ready(function() {
     $(this).css('background-color', '#FFFFFF');
   });
 
-  // Contract nav menu on button click
+  // Close nav menu on button click
   $('div#nav-hide').click(function() {
     if (isViewingNav) {
       // Shorten the actual menu
@@ -88,6 +88,7 @@ $(document).ready(function() {
           duration: 410,
           complete: function() {
             isViewingNav = false;
+            $('div#nav-hide').css('background-color', '#FFFFFF');
           }
         })
         .css('cursor', 'pointer');
