@@ -1,3 +1,4 @@
+var shine = 6000;
 var t, metaBoxVisited = false;
 
 $(document).ready(function() {
@@ -13,7 +14,7 @@ $(document).ready(function() {
     }, 750);
 
   // Have the meta box 'shine' every few seconds until rollover
-  t = setTimeout(function() { metaBoxShine(); }, 5000);
+  t = setTimeout(function() { metaBoxShine(); }, shine);
 
   // Animate rollover for meta info box
   $('div#metabox').css({
@@ -188,6 +189,6 @@ function metaBoxShine() {
         width: '-=10'
       });
     }});
-    t = setTimeout(function() { metaBoxShine(); }, 5000);
+    t = setTimeout(function() { metaBoxShine(); }, shine);
   }
 }
