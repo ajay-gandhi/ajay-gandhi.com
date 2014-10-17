@@ -115,7 +115,7 @@ $(document).ready(function() {
               }, {
                 complete: function() {
                   // Load content.js now that we are on a content page
-                  $.getScript('content.js');
+                  $.getScript('scripts/content.js');
                 }
               });
             });
@@ -174,7 +174,7 @@ $(document).ready(function() {
                       duration: $(window).width(),
                       complete: function() {
                         // Reinclude this script itself to rebind elements
-                        $.getScript('homepage.js');
+                        $.getScript('scripts/homepage.js');
 
                         // Do pushstate things
                         var state = { page: 'index.html' };
