@@ -16,6 +16,8 @@ $(document).ready(function() {
   // Have the meta box 'shine' every few seconds until rollover
   t = setTimeout(function() { metaBoxShine(); }, shine);
 
+  // To uphold progressive enhancement, meta box height is actually
+  // 75px, but is changed by JS to hide GitHub memo at outset
   $('div#metabox').css('height', '30px');
 });
 
