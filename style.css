@@ -64,7 +64,7 @@ div#metabox {
   position: absolute;
   top: 20px;
   left: 0px;
-  width: auto;
+  width: 170px;
   padding: 15px 15px 15px 30px;
   overflow: hidden;
   background-color: #FFFFFF;
@@ -75,6 +75,10 @@ div#metabox {
 div#metabox h1 {
   font-size: 30px;
   padding-bottom: 15px;
+}
+div#metabox a {
+  color: #000000;
+  text-decoration: underline;
 }
 
 .noselect {
