@@ -1,11 +1,9 @@
 /*
- * This CSS file contains 3 parts:
+ * This CSS file contains 4 parts:
  *   CSS Reset
+ *   Global styles
  *   Home page styling
  *   Content page styling
- * Note that the metabox styling is under
- *   home page styling but it appears on
- *   every page
  */
 
 /**
@@ -55,12 +53,13 @@ table {
 }
 
 /**
- * Part 2: Home page
+ * Part 2: Global styles
  */
 body {
   background-color: #F2F2F2;
   font-family: Calibri, "Helvetica Neue", Helvetica, sans;
 }
+
 div#metabox {
   position: absolute;
   top: 20px;
@@ -78,6 +77,18 @@ div#metabox h1 {
   padding-bottom: 15px;
 }
 
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/**
+ * Part 3: Home page
+ */
 div#icon-wrapper {
   position: relative;
   top: 100px;
@@ -114,8 +125,30 @@ div#icon-tooltip {
 
 
 /**
- * Part 3: Content pages
+ * Part 4: Content pages
  */
+div#back {
+  position: absolute;
+  top: 25px;
+  left: 260px;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  background-color: #FFFFFF;
+  border: 2px solid #D2D2D2;
+  border-radius: 25px;
+  cursor: pointer;
+}
+div#back:hover {
+  background-color: #EEEEEE;
+}
+a#back-link {
+  color: #000000;
+  text-decoration: none;
+}
+
 div#nav-menu {
   overflow: hidden;
   background-color: #FFFFFF;
