@@ -177,5 +177,60 @@ $(document).ready(function() {
           });
       }
     });
+
+    // When the back button is clicked, re-load the home page icons
+    // and remove the navi and content
+    $('a#back-link').click(function(e) {
+      e.preventDefault();
+      // Slide out and subsequently remove each elem
+      $('div#back').animate({
+        top: '-50px'
+      }, {
+        complete: function() {
+          $('a#back-link').remove();
+        }
+      });
+
+      $('div#nav-menu').animate({
+        right: '-100px'
+      }, {
+        complete: function() {
+          $(this).remove();
+        }
+      });
+
+      $('div#main-wrapper').animate({
+        marginTop: $(window).height() + 50 + 'px'
+      }, {
+        duration: $(window).height(),
+        complete: function() {
+          $(this).remove();
+
+          // Load home page icons and slide them in
+          // Loading the icons into a wrapper to keep
+          // the meta box
+          $('body').append('<div id="homepage-wrapper"></div>');
+          $('div#homepage-wrapper').load('index.html div#icon-wrapper', function() {
+            $('div#icon-wrapper')
+              .unwrap()
+              .css('margin-left', $(window).width() + 'px')
+              .animate({
+                marginLeft: '0px'
+              }, {
+                duration: $(window).width(),
+                complete: function() {
+                  // Reinclude this script itself to rebind elements
+                  $.getScript('scripts/homepage.js');
+
+                  // Do pushstate things
+                  var state = { page: 'index.html' };
+                  history.pushState(state, 'Home', 'index.html');
+                }
+              });
+          });
+        }
+      });
+    });
+
   }
 });
