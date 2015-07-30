@@ -1,47 +1,8 @@
-$(document).ready(function() {
-  // Animate rollover for meta info box
-  $('div#metabox').hover(function() {
-    metaBoxVisited = true;
-    // Only move main if it is underneath meta box
-    if ($(window).width() < ($('div#metabox').outerWidth() * 2) + 790) {
-      $('div#main').stop().animate({
-        marginTop: '145px'
-      });
-    }
-    $(this).stop().animate({
-      height: '75px'
-    });
-  }, function() {
-    $('div#main').stop().animate({
-      marginTop: '100px'
-    });
-    $(this).stop().animate({
-      height: '30px'
-    });
-  })
 
-  // Activate on-click too for mobile users
-  .click(function() {
-    if ($(this).css('height') == '30px') {
-      metaBoxVisited = true;
-      // Only move main if it is underneath meta box
-      if ($(window).width() < ($('div#metabox').outerWidth() * 2) + 790) {
-        $('div#main').stop().animate({
-          marginTop: '145px'
-        });
-      }
-      $(this).stop().animate({
-        height: '75px'
-      });
-    } else {
-      $('div#main').stop().animate({
-        marginTop: '100px'
-      });
-      $(this).stop().animate({
-        height: '30px'
-      });
-    }
-  });
+/**
+ * Home page interactions
+ */
+$(document).ready(function() {
 
   // Icon tooltip
   $('div.icon-container img').hover(function() {
@@ -115,7 +76,7 @@ $(document).ready(function() {
               }, {
                 complete: function() {
                   // Load content.js now that we are on a content page
-                  $.getScript('scripts/content.js');
+                  $.getScript('js/content.js');
                 }
               });
             });

@@ -1,4 +1,6 @@
+
 var link, isViewingNav = false;
+
 /**
  * Content page interactions
  */
@@ -9,9 +11,9 @@ $(document).ready(function() {
     right: '1px'
   });
 
-  // When the current nav icon is clicked, it should either
-  //   open the navi menu if it is closed or
-  //   visit the clicked page if navi menu is open
+  // When the current nav icon is clicked, it should either:
+  //  open the navi menu if it is closed or
+  //  visit the clicked page if navi menu is open
   link = $('div.nav-item.current a').attr('href');
   $('div.nav-item.current')
     .css({
@@ -28,46 +30,48 @@ $(document).ready(function() {
   $('div.nav-item.current a').removeAttr('href');
 
   // Rollover for navi menu
-  $('div#nav-menu').hover(function() {
-    if (isViewingNav == false) {
-      $('div#nav-menu').stop().animate({
-        paddingTop: '+=25'
-      });
-    }
-  }, function() {
-    if (isViewingNav == false) {
-      $('div#nav-menu').stop().animate({
-        paddingTop: '-=25'
-      });
-    }
-  });
-
-  // Click actions to expand nav menu
-  $('div#nav-menu').click(function() {
-    if (isViewingNav == false) {
-      isViewingNav = true;
-
-      // Expand the menu itself
-      $('div#nav-menu')
-        .animate({
-          height: '425px',
-          paddingTop: '2px'
-        })
-        .css('cursor', 'default');
-
-      // Display the other navi items
-      $('div.nav-item').each(function(index) {
-        $(this).animate({
-          bottom: (index * 80) + 'px'
+  var init_height = $('div#nav-menu').height();
+  $('div#nav-menu')
+    .hover(function() {
+      if (isViewingNav == false) {
+        $('div#nav-menu').stop().animate({
+          height: (init_height + 30) + 'px'
         });
-      });
+      }
+    }, function() {
+      if (isViewingNav == false) {
+        $('div#nav-menu').stop().animate({
+          height: init_height
+        });
+      }
+    })
+    // Click actions to expand nav menu
+    .click(function() {
+      if (isViewingNav == false) {
+        isViewingNav = true;
 
-      // Navi menu is open now, so give the navi icon its
-      // URL back
-      $('div.nav-item.current a').attr('href', link);
-      $('div#nav-hide').html('&or;&nbsp;');
-    }
-  });
+        // Expand the menu itself
+        $('div#nav-menu')
+          .stop()
+          .animate({
+            height: '430px',
+            paddingTop: '2px'
+          })
+          .css('cursor', 'default');
+
+        // Display the other navi items
+        $('div.nav-item').each(function(index) {
+          $(this).animate({
+            bottom: (index * 80) + 'px'
+          });
+        });
+
+        // Navi menu is open now, so give the navi icon its
+        // URL back
+        $('div.nav-item.current a').attr('href', link);
+        $('div#nav-hide').html('&or;&nbsp;');
+      }
+    });
 
   // Hover for nav menu hide button
   $('div#nav-hide').hover(function() {
@@ -211,6 +215,9 @@ $(document).ready(function() {
           // the meta box
           $('body').append('<div id="homepage-wrapper"></div>');
           $('div#homepage-wrapper').load('index.html div#icon-wrapper', function() {
+            // Reinclude this script itself to rebind elements
+            $.getScript('js/homepage.js');
+
             $('div#icon-wrapper')
               .unwrap()
               .css('margin-left', $(window).width() + 'px')
@@ -219,8 +226,6 @@ $(document).ready(function() {
               }, {
                 duration: $(window).width(),
                 complete: function() {
-                  // Reinclude this script itself to rebind elements
-                  $.getScript('scripts/homepage.js');
 
                   // Do pushstate things
                   var state = { page: 'index.html' };

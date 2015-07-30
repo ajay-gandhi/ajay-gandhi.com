@@ -64,8 +64,8 @@ div#metabox {
   position: absolute;
   top: 20px;
   left: 0px;
-  width: 170px;
-  padding: 15px 15px 15px 30px;
+  width: 175px;
+  padding: 15px 15px 0 30px;
   overflow: hidden;
   background-color: #FFFFFF;
   -moz-box-shadow: 2px 2px 2px 2px #E2E2E2;
@@ -75,10 +75,6 @@ div#metabox {
 div#metabox h1 {
   font-size: 30px;
   padding-bottom: 15px;
-}
-div#metabox a {
-  color: #000000;
-  text-decoration: underline;
 }
 
 .noselect {
@@ -184,8 +180,8 @@ div#nav-hide {
   top: 0px;
   right: 0px;
   width: 84px;
-  height: 19px;
-  padding-bottom: 4px;
+  height: 26px;
+  padding-top: 5px;
   text-align: center;
   font-family: Arial;
   font-size: 20px;
@@ -196,28 +192,34 @@ div#nav-hide {
 div#main-wrapper {
   text-align: center;
   margin: 0 auto;
+  padding: 110px 0 0 0;
   width: 100%;
   max-width: 800px;
 }
-div#main {
-  margin: 100px 15px 40px 15px;
+h1#page-heading {
+  margin: 0 0 30px 0;
+  font-size: 40px;
+}
+div.module {
+  height: 60px;
+  margin: 15px 15px;
   background-color: #FFFFFF;
-  padding: 30px 20px;
   border: 1px solid #DEDEDE;
   -moz-box-shadow: 2px 2px 2px 2px #E2E2E2;
   -webkit-box-shadow: 2px 2px 2px 2px #E2E2E2;
   box-shadow: 2px 2px 2px 2px #E2E2E2;
+  overflow: hidden;
 }
-span#heading {
-  font-size: 30px;
+div.module h2.heading {
+  text-align: left;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10px;
-  padding: 0px 20px;
+  padding: 18px 16px;
+  cursor: pointer;
 }
-span#subheading {
-  font-size: 20px;
-  font-style: italic;
+div.module h2.heading:hover {
+  color: #54a8db;
 }
-span#content {
+div.module span.content {
   line-height: 1.5em;
 }
