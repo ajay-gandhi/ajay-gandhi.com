@@ -58,8 +58,7 @@ $(document).ready(function() {
               bottom: '-0px',
               right: '-100px'
             })
-            // .load(which + ' div#nav-menu', function() {
-            .load('hobbies.html div#nav-menu', function() {
+            .load(which + ' div#nav-menu', function() {
               // Nav menu is loaded, remove the wrapper
               // and slide it in
               $('div#nav-menu')
@@ -107,7 +106,7 @@ $(document).ready(function() {
             .css({
               marginTop: $(window).height() + 50 + 'px'
             })
-            .load('hobbies.html div#main', function() {
+            .load(which + ' div#main', function() {
               // Animate decreasing of margins to slide content up
               $(this).animate({
                 marginTop: '0px'

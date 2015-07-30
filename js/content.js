@@ -158,7 +158,7 @@ $(document).ready(function() {
             marginTop: $(window).height() + 50 + 'px'
           })
           // Load new content
-          .load('hobbies.html div#main', function() {
+          .load(which + ' div#main', function() {
             // Animate decreasing of margins to slide
             // content back up
             $(this).animate({
