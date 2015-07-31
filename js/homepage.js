@@ -116,7 +116,7 @@ $(document).ready(function() {
                 marginTop: '0px'
               }, {
                 // Vary duration of animation based on window height
-                duration: $(window).height(),
+                duration: $(window).height() / 1.5,
                 complete: function() {
                   // Allow scrolling once animation completes
                   $('body').css('overflow', 'auto');

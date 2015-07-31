@@ -202,7 +202,7 @@ $(document).ready(function() {
               marginTop: '0px'
             }, {
               // Vary duration of animation based on window height
-              duration: $(window).height(),
+              duration: $(window).height() / 1.5,
               complete: function() {
                 // Allow scrolling once animation completes
                 $('body').css('overflow', 'auto');
@@ -243,7 +243,7 @@ $(document).ready(function() {
       $('div#main-wrapper').animate({
         marginTop: $(window).height() + 50 + 'px'
       }, {
-        duration: $(window).height(),
+        duration: $(window).height() / 1.5,
         complete: function() {
           $(this).remove();
 
@@ -261,7 +261,7 @@ $(document).ready(function() {
               .animate({
                 marginLeft: '0px'
               }, {
-                duration: $(window).width(),
+                duration: $(window).width() / 1.5,
                 complete: function() {
 
                   // Do pushstate things
