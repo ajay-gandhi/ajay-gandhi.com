@@ -226,5 +226,9 @@ div.module h2.heading:hover {
 }
 div.module div.content {
   line-height: 1.5em;
-  padding-bottom: 20px;
+  text-align: left;
+  padding: 0 20px 20px 20px;
+}
+div.module div.content a {
+  color: blue;
 }
