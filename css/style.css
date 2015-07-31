@@ -90,6 +90,16 @@ span.hidden {
   display: none;
 }
 
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+
 /**
  * Part 3: Home page
  */
@@ -226,6 +236,7 @@ div.module h2.heading:hover {
 }
 div.module div.content {
   line-height: 1.5em;
+  font-size: 16px;
   text-align: left;
   padding: 0 20px 20px 20px;
 }
