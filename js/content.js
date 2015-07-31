@@ -5,15 +5,30 @@ var link, isViewingNav = false;
  * Content page interactions
  */
 $(document).ready(function() {
+
   // Hide all nav items except the one related to the current page
   $('div.nav-item').not('.current').css({
     bottom: '-80px',
     right: '1px'
   });
 
+  // Click actions to expand/hide content
+  $('div.module h2.heading').click(function () {
+    var module = $(this).parent();
+    if (module.hasClass('display-content')) {
+      module.stop().animate({ height: 60 }).removeClass('display-content');
+    } else {
+      module.stop();
+      module.css('height', 'auto');
+      var full = module.height();
+      module.height(60);
+      module.animate({ height: full }).addClass('display-content');
+    }
+  });
+
   // When the current nav icon is clicked, it should either:
-  //  open the navi menu if it is closed or
-  //  visit the clicked page if navi menu is open
+  //   open the navi menu if it is closed or
+  //   visit the clicked page if navi menu is open
   link = $('div.nav-item.current a').attr('href');
   $('div.nav-item.current')
     .css({
@@ -130,6 +145,12 @@ $(document).ready(function() {
         which = $(this).attr('href');
         title = $(this).attr('title');
 
+        // Do nothing but hide nav menu if clicked current
+        if (clicked.parent('div.nav-item').hasClass('current')) {
+          $('div#nav-hide').trigger('click');
+          return;
+        }
+
         // Disable scrolling until everything is visible,
         // then scroll to the top
         $('body').css('overflow', 'hidden');
@@ -159,6 +180,22 @@ $(document).ready(function() {
           })
           // Load new content
           .load(which + ' div#main', function() {
+
+            // Click actions to expand/hide content
+            // Copy/pasted to rebind
+            $('div.module h2.heading').click(function () {
+              var module = $(this).parent();
+              if (module.hasClass('display-content')) {
+                module.stop().animate({ height: 60 }).removeClass('display-content');
+              } else {
+                module.stop();
+                module.css('height', 'auto');
+                var full = module.height();
+                module.height(60);
+                module.animate({ height: full }).addClass('display-content');
+              }
+            });
+
             // Animate decreasing of margins to slide
             // content back up
             $(this).animate({

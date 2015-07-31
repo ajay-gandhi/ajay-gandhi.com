@@ -2,6 +2,7 @@
 /**
  * Home page interactions
  */
+
 $(document).ready(function() {
 
   // Icon tooltip
@@ -43,7 +44,7 @@ $(document).ready(function() {
       $('div#icon-wrapper').animate({
         marginLeft: '+=' + $(window).width()
       }, {
-        duration: $(window).width(),
+        duration: $(window).width() / 1.5,
         complete: function() {
           // Delete the whole container
           $(this).remove();
@@ -68,7 +69,10 @@ $(document).ready(function() {
                   right: '-100px'
                 })
                 .unwrap();
-              $('div.nav-item').not('.current').css('bottom', '-80px');
+              $('div.nav-item').each(function () {
+                if (!$(this).hasClass('current'))
+                  $(this).css('bottom', '-80px');
+              });
               $('div#nav-menu').animate({
                 bottom: '0px',
                 right: '0px'
