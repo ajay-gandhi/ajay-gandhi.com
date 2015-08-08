@@ -5,6 +5,15 @@
 
 $(document).ready(function() {
 
+  // // Fade in images after 1.5s
+  // setTimeout(function () {
+  //   $('img').fadeIn();
+  // }, 1500);
+  // Fade in on load
+  $('img').load(function () {
+    $(this).fadeIn('fast');
+  });
+
   // Icon tooltip
   $('div.icon-container img').hover(function() {
     $('div#icon-tooltip')

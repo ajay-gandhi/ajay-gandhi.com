@@ -117,6 +117,7 @@ div.icon-container {
   height: 125px;
 }
 div.icon-container img {
+  display: none;
   width: 125px;
   height: auto;
 }

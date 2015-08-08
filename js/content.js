@@ -252,6 +252,8 @@ $(document).ready(function() {
           // the meta box
           $('body').append('<div id="homepage-wrapper"></div>');
           $('div#homepage-wrapper').load('index.html div#icon-wrapper', function() {
+            $('img').show();
+
             // Reinclude this script itself to rebind elements
             $.getScript('js/homepage.js');
 
