@@ -36,6 +36,9 @@ $(document).ready(function() {
     // When any image is clicked on the home page,
     // slide them all to the right and then remove them
     $('div.icon-container a').click(function(e) {
+      // Actually follow link if external
+      if ($(this).hasClass('exclude')) return;
+
       e.preventDefault();
 
       // Store which link was clicked
@@ -89,7 +92,9 @@ $(document).ready(function() {
                 complete: function() {
                   // Load js files now that we are on a content page
                   $.getScript('js/content.js');
-                  $.getScript('js/lightbox.js');
+
+                  // Only get lightbox if needed
+                  if (which === 'projects.html') $.getScript('js/lightbox.js');
                 }
               });
             });
