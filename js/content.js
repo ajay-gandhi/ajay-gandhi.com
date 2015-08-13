@@ -181,6 +181,9 @@ $(document).ready(function() {
           // Load new content
           .load(which + ' div#main', function() {
 
+            // Include lightbox script
+            $.getScript('js/lightbox.js');
+
             // Click actions to expand/hide content
             // Copy/pasted to rebind
             $('div.module h2.heading').click(function () {

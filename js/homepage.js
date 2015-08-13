@@ -87,8 +87,9 @@ $(document).ready(function() {
                 right: '0px'
               }, {
                 complete: function() {
-                  // Load content.js now that we are on a content page
+                  // Load js files now that we are on a content page
                   $.getScript('js/content.js');
+                  $.getScript('js/lightbox.js');
                 }
               });
             });
