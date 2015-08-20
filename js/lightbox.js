@@ -10,6 +10,9 @@
  * https://github.com/lokesh/lightbox2/blob/master/LICENSE
  */
 
+// To prevent multiple includes
+var hasLightbox = true;
+
 // Uses Node, AMD or browser globals to create a module.
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {

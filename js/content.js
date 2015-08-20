@@ -181,8 +181,9 @@ $(document).ready(function() {
           // Load new content
           .load(which + ' div#main', function() {
 
-            // Only get lightbox if needed
-            if (which === 'projects.html') $.getScript('js/lightbox.js');
+            // Only get lightbox if not already included
+            if (typeof window.hasLightbox == 'undefined')
+              $.getScript('js/lightbox.js');
 
             // Click actions to expand/hide content
             // Copy/pasted to rebind

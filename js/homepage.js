@@ -93,8 +93,9 @@ $(document).ready(function() {
                   // Load js files now that we are on a content page
                   $.getScript('js/content.js');
 
-                  // Only get lightbox if needed
-                  if (which === 'projects.html') $.getScript('js/lightbox.js');
+                  // Only get lightbox if not already included
+                  if (typeof window.hasLightbox == 'undefined')
+                    $.getScript('js/lightbox.js');
                 }
               });
             });
