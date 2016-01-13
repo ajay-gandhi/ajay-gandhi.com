@@ -1,6 +1,7 @@
-# ajay.ga
+# ajay-gandhi.com
 
-This is the source code for my profile page at [http://ajay.ga](http://ajay.ga).
+This is the source code for my profile page at
+[http://ajay-gandhi.com](http://ajay-gandhi.com).
 
 ## Contributions
 
