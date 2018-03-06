@@ -1,3 +1,10 @@
+// Positions
+var card = document.querySelector(".CardContainer__Card");
+var CARD_TOP = card.offsetTop;
+var CARD_LEFT = card.offsetLeft;
+var WANT_TOP = 0.65;
+var WANT_LEFT = 0.5;
+
 // Debounce fn
 var throttle = function (type, name, obj) {
   obj = obj || window;
@@ -15,20 +22,14 @@ var throttle = function (type, name, obj) {
 throttle("resize", "debouncedResize");
 
 // Resize bg based on window size
-var background = document.querySelector(".Root__BackgroundImage");
-var resizeBg = function () {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
-  if (width > height) {
-    background.style.width = (width / 2500 * 3000) + "px";
-    background.style.height = "auto";
-  } else {
-    background.style.height = (height / 2500 * 3000) + "px";
-    background.style.width = "auto";
-  }
+var container = document.querySelector(".Root");
+console.log(CARD_TOP, CARD_LEFT);
+var reposition = function () {
+  container.style.top = parseInt(WANT_TOP * window.innerHeight - CARD_TOP) / 2 + "px";
+  container.style.left = parseInt(WANT_LEFT * window.innerWidth - CARD_LEFT) / 2 + "px";
 }
-resizeBg();
-window.addEventListener("debouncedResize", resizeBg);
+reposition();
+window.addEventListener("debouncedResize", reposition);
 
 // Open links in new windows
 document.querySelectorAll("a").forEach(function (a) { a.setAttribute("target", "_blank"); });
