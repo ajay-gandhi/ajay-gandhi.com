@@ -1,12 +1,3 @@
-// Position of card
-var card = document.querySelector(".CardContainer__Card");
-var CTOP = card.offsetTop;
-var CLEFT = card.offsetLeft;
-
-// Position we want
-var WTOP = 0.7;
-var WLEFT = 0.6;
-
 // Debounce fn
 var throttle = function (type, name, obj) {
   obj = obj || window;
@@ -23,13 +14,18 @@ var throttle = function (type, name, obj) {
 };
 throttle("resize", "debouncedResize");
 
-// Reposition bg based on window size
-var container = document.querySelector(".Root");
+// Resize bg based on window size
+var background = document.querySelector(".Root__BackgroundImage");
 var resizeBg = function () {
   var width = window.innerWidth;
   var height = window.innerHeight;
-  container.style.top = parseInt(height * WTOP - CTOP) + "px";
-  container.style.left = ((width * WLEFT) - CLEFT) + "px";
+  if (width > height) {
+    background.style.width = (width / 2500 * 3000) + "px";
+    background.style.height = "auto";
+  } else {
+    background.style.height = (height / 2500 * 3000) + "px";
+    background.style.width = "auto";
+  }
 }
 resizeBg();
 window.addEventListener("debouncedResize", resizeBg);
