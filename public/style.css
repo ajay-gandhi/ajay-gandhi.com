@@ -4,7 +4,7 @@
 }
 body {
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 a {
   text-decoration: none;
@@ -13,9 +13,10 @@ a {
 
 .Root__BackgroundImage {
   position: absolute;
-  bottom: -5vh;
-  left: 50%;
-  transform: translate(-50%, 0);
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
 }
 .Root__CardContainer {
   position: absolute;
@@ -29,45 +30,40 @@ a {
   position: absolute;
   width: 300px;
   height: 171px;
-  top: 65%;
-  left: 55%;
+  top: 1000px;
+  left: 1400px;
   background-color: #ebeffb;
   overflow: hidden;
   z-index: 3;
 
   animation: cardDrop 1125ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transform-origin: center center;
-  transform: rotateZ(10deg) translate(-50%, -50%);
+  transform: rotateZ(10deg) translate(-80px, -40px);
   perspective: 800px;
 }
 @keyframes cardDrop {
   0% {
-    transform: rotateZ(10deg) rotateX(-15deg) scale(5) translate(-140%, -30%);
-    transform-origin: center center;
+    transform: rotateZ(10deg) rotateX(-15deg)  rotateY(0deg)    scale(5)    translate(-400px, -100px);
   }
   76% {
-    transform: rotateZ(10deg) rotateX(-15deg) rotateY(40deg) translate(-50%, -50%) scale(1.1);
-    transform-origin: center 77px;
+    transform: rotateZ(10deg) rotateX(-7.5deg) rotateY(20deg)   scale(1.1);
   }
   84% {
-    transform: rotateZ(10deg) rotateX(8deg) rotateY(-15deg) translate(-50%, -50%) scale(1.04);
-    transform-origin: center 81px;
+    transform: rotateZ(10deg) rotateX(4deg)    rotateY(-7deg) scale(1.04) translate(-80px, -40px);
   }
   92% {
-    transform: rotateZ(10deg) rotateX(-2deg) rotateY(3deg) translate(-50%, -50%);
-    transform-origin: center 83px;
+    transform: rotateZ(10deg) rotateX(-1deg)   rotateY(1.5deg)  scale(1)    translate(-80px, -40px);
   }
   100% {
-    transform: rotateZ(10deg) translate(-50%, -50%);
-    transform-origin: center center;
+    transform: rotateZ(10deg) translate(-80px, -40px);
   }
 }
 .CardContainer__CardShadow {
   position: absolute;
   width: 302px;
   height: 173px;
-  top: 65%;
-  left: 55%;
+  top: 1000px;
+  left: 1400px;
   background-color: #666;
   box-shadow: 0 0 10px 1px #666;
   opacity: 0.3;
@@ -76,29 +72,24 @@ a {
 
   animation: cardShadow 1125ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transform-origin: center center;
-  transform: rotateZ(10deg) translate(-50%, -50%);
+  transform: rotateZ(10deg) translate(-80px, -40px);
   perspective: 800px;
 }
 @keyframes cardShadow {
   0% {
-    transform: rotateZ(13deg) rotateX(-15deg) scale(5) translate(-145%, -30%);
-    transform-origin: center center;
+    transform: rotateZ(13deg) rotateX(-15deg) scale(5) translate(-400px, -100px);
   }
   76% {
-    transform: rotateZ(10deg) rotateX(-15deg) skew(10deg, 25deg) rotateY(50deg) translate(-54%, -55%) scale(1.1);
-    transform-origin: center 77px;
+    transform: rotateZ(10deg) rotateX(-15deg) skew(10deg, 20deg) rotateY(20deg) translate(20px, -35px) scale(1.1);
   }
   84% {
-    transform: rotateZ(11deg) rotateX(5deg) skew(2deg) rotateY(-7.5deg) translate(-47%, -44%) scale(1);
-    transform-origin: center 81px;
+    transform: rotateZ(11deg) rotateX(5deg) skew(1deg, -2deg) rotateY(-6deg) translate(-87px, -35px) scale(1.04);
   }
   92% {
-    transform: rotateZ(10deg) rotateX(-2deg) skew(1deg, 0.5deg) rotateY(1.5deg) translate(-51%, -51%);
-    transform-origin: center 83px;
+    transform: rotateZ(10deg) rotateX(-2deg) skew(2deg, 1deg) rotateY(1.5deg) translate(-85px, -45px) scale(1.02);
   }
   100% {
-    transform: rotateZ(10deg) translate(-50%, -50%);
-    transform-origin: center center;
+    transform: rotateZ(10deg) translate(-80px, -40px);
   }
 }
 
