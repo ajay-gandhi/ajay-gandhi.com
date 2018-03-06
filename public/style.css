@@ -35,7 +35,7 @@ a {
   overflow: hidden;
   z-index: 3;
 
-  animation: cardDrop 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  animation: cardDrop 1500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transform-origin: center center;
   transform: rotateZ(10deg) translate(-50%, -50%);
   perspective: 800px;
@@ -74,7 +74,7 @@ a {
   overflow: hidden;
   z-index: 2;
 
-  animation: cardShadow 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  animation: cardShadow 1500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transform-origin: center center;
   transform: rotateZ(10deg) translate(-50%, -50%);
   perspective: 800px;
@@ -115,7 +115,7 @@ a {
   background: url(card.jpg);
   background-size: cover;
   transform: scale(2) rotateZ(130deg);
-  opacity: 0.2;
+  opacity: 0.3;
 }
 .Card__background--color {
   background-color: #ebeffb;
