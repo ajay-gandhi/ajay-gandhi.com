@@ -5,9 +5,6 @@ This is the source code for my profile page at
 
 ## Contributions
 
-Thanks to [Freepik](http://ww.freepik.com/) and [FlatIcon](http://flaticon.com)
-for the vector icons used on the homepage.
-
-Used the [Lightbox2 script](http://lokeshdhakar.com/projects/lightbox2/) for
-the screenshots.
+Background photo by JESHOOTS.com from
+[Pexels](https://www.pexels.com/photo/coffee-keyboard-laptop-macbook-442575/).
 

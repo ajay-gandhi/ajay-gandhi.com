@@ -1,0 +1,161 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Root__BackgroundImage {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.Root__CardContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  perspective: 800px;
+}
+.CardContainer__Card {
+  position: absolute;
+  width: 300px;
+  height: 171px;
+  top: 65%;
+  left: 55%;
+  background-color: #ebeffb;
+  overflow: hidden;
+  z-index: 3;
+
+  animation: cardDrop 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transform-origin: center center;
+  transform: rotateZ(10deg) translate(-50%, -50%);
+  perspective: 800px;
+}
+@keyframes cardDrop {
+  0% {
+    transform: rotateZ(10deg) rotateX(-15deg) scale(5) translate(-140%, -30%);
+    transform-origin: center center;
+  }
+  82% {
+    transform: rotateZ(10deg) rotateX(-15deg) rotateY(40deg) translate(-50%, -50%) scale(1.1);
+    transform-origin: center 77px;
+  }
+  88% {
+    transform: rotateZ(10deg) rotateX(8deg) rotateY(-15deg) translate(-50%, -50%) scale(1.04);
+    transform-origin: center 81px;
+  }
+  94% {
+    transform: rotateZ(10deg) rotateX(-2deg) rotateY(3deg) translate(-50%, -50%);
+    transform-origin: center 83px;
+  }
+  100% {
+    transform: rotateZ(10deg) translate(-50%, -50%);
+    transform-origin: center center;
+  }
+}
+.CardContainer__CardShadow {
+  position: absolute;
+  width: 302px;
+  height: 173px;
+  top: 65%;
+  left: 55%;
+  background-color: #666;
+  box-shadow: 0 0 10px 1px #666;
+  opacity: 0.3;
+  overflow: hidden;
+  z-index: 2;
+
+  animation: cardShadow 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transform-origin: center center;
+  transform: rotateZ(10deg) translate(-50%, -50%);
+  perspective: 800px;
+}
+@keyframes cardShadow {
+  0% {
+    transform: rotateZ(13deg) rotateX(-15deg) scale(5) translate(-145%, -30%);
+    transform-origin: center center;
+  }
+  82% {
+    transform: rotateZ(10deg) rotateX(-15deg) skew(10deg, 25deg) rotateY(50deg) translate(-54%, -55%) scale(1.1);
+    transform-origin: center 77px;
+  }
+  88% {
+    transform: rotateZ(11deg) rotateX(5deg) skew(2deg) rotateY(-7.5deg) translate(-47%, -44%) scale(1);
+    transform-origin: center 81px;
+  }
+  94% {
+    transform: rotateZ(10deg) rotateX(-2deg) skew(1deg, 0.5deg) rotateY(1.5deg) translate(-51%, -51%);
+    transform-origin: center 83px;
+  }
+  100% {
+    transform: rotateZ(10deg) translate(-50%, -50%);
+    transform-origin: center center;
+  }
+}
+
+.Card__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+.Card__background--image {
+  background: url(card.jpg);
+  background-size: cover;
+  transform: scale(2) rotateZ(130deg);
+  opacity: 0.2;
+}
+.Card__background--color {
+  background-color: #ebeffb;
+  opacity: 0.25;
+}
+
+.Card__content {
+  padding: 10px 13px;
+  font-family: "Lato", Helvetica;
+  color: #111;
+  z-index: 5;
+}
+.Card__content__title {
+  padding: 3px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+}
+.Card__content__github {
+  width: 30px;
+  height: 30px;
+}
+
+.Card__content__subtitle {
+  color: #666;
+  font-size: 15px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card__content__projects {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 18px;
+}
+.Card__content__projectItems {
+  margin-top: 3px;
+  margin-left: 23px;
+}
+.Card__content__projectItems a:hover {
+  color: #555;
+}
