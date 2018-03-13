@@ -47,12 +47,12 @@ var reposition = function () {
 
   var hScale = wHeight / BG_HEIGHT;
   var wScale = wWidth / BG_WIDTH;
+  var scale = hScale > wScale ? hScale : wScale;
   if (hScale > 1 || wScale > 1) {
-    container.style.transform = "scale(" + (hScale > wScale ? hScale : wScale) + ")";
+    container.style.transform = "scale(" + scale + ")";
   } else {
     var top = wHeight * hm - hb;
     var left = wWidth * wm - wb;
-    var scale = hScale > wScale ? hScale : wScale;
     scale = scale * sm + sb;
     container.style.transform = "translate(" + left * scale + "px, " + top * scale + "px) scale(" + scale + ")";
   }
