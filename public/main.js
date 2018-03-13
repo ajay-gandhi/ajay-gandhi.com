@@ -5,16 +5,23 @@ var card = document.querySelector(".CardContainer__Card");
 // Using the linear equation in reposition(), a window width of wx should map
 // to an offset of wy, resulting in y-intercept wb
 var wx = 400;
-var wy = -1400;
+var wy = -1300;
 var wm = -wy / (BG_WIDTH - wx);
 var wb = wm * BG_WIDTH;
 
 // Same for height
-var hx = 200;
-var hy = -780;
+var hx1 = 200;
 var hx2 = BG_HEIGHT - 150;
-var hm = -hy / (hx2 - hx);
+var hy = -730;
+var hm = -hy / (hx2 - hx1);
 var hb = hm * hx2;
+
+// Same for scale
+var sx = 0.2;
+var sy = 0.70;
+var sm = (1 - sy) / (1 - sx);
+var sb = 1 - sm;
+
 
 // Debounce fn
 var throttle = function (type, name, obj) {
@@ -45,17 +52,9 @@ var reposition = function () {
   } else {
     var top = wHeight * hm - hb;
     var left = wWidth * wm - wb;
-    // console.log(left);
-    container.style.transform = "translate(" + left + "px, " + top + "px)";
-    // var scale = hScale > wScale ? hScale : wScale;
-    // container.style.transform = "";
-    // var cTop = card.offsetTop + 150;
-    // var cLeft = card.offsetLeft + 150;
-    // var hOffset = wHeight < cTop ? wHeight - cTop - (wHeight / 30) : 0;
-    // var wOffset = wWidth < cLeft ? wWidth - cLeft - (wWidth / 15) : 0;
-
-    // var scale = hScale > wScale ? hScale : wScale;
-    // container.style.transform = "translate(" + wOffset + "px, " + hOffset + "px) scale(" + Math.cbrt(scale) + ")";
+    var scale = hScale > wScale ? hScale : wScale;
+    scale = scale * sm + sb;
+    container.style.transform = "translate(" + left * scale + "px, " + top * scale + "px) scale(" + scale + ")";
   }
 }
 reposition();
