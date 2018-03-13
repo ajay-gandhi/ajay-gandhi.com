@@ -97,6 +97,9 @@ a {
   width: 30px;
   height: 30px;
 }
+.Card__content__github:hover {
+  opacity: 0.7;
+}
 
 .Card__content__subtitle {
   color: #666;
