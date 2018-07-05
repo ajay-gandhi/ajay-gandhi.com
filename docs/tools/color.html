@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Color Utility</title>
+  <script type="text/javascript">
+  var color = {
+    hex: false,
+    r: false,
+    g: false,
+    b: false
+  };
+  var displays = {
+    'color': null,
+    'hex': null,
+    'r': null,
+    'g': null,
+    'b': null,
+    'lighter': null,
+    'darker': null
+  };
+
+  window.onload = function () {
+    // Grab entities we'll need
+    Object.keys(displays).forEach(function (disp_name) {
+      displays[disp_name] = document.getElementById(disp_name + '-display');
+    });
+
+    document.getElementById('hex').addEventListener('keyup', function (e) {
+      // Remove #
+      if (this.value.charAt(0) === '#') this.value = this.value.substr(1);
+      if (this.value.length > 6) this.value = this.value.substr(0, 6);
+
+      color.hex = this.value;
+      if (color.hex.length == 3)
+        color.hex = color.hex.charAt(0) +
+                    color.hex.charAt(0) +
+                    color.hex.charAt(1) +
+                    color.hex.charAt(1) +
+                    color.hex.charAt(2) +
+                    color.hex.charAt(2);
+
+      // Is it a valid color?
+      if (/[0-9A-F]{6}$/i.test(color.hex)) {
+        color.r = hex_r(color.hex);
+        color.g = hex_g(color.hex);
+        color.b = hex_b(color.hex);
+        update();
+      }
+    });
+
+    ['r', 'g', 'b'].forEach(function (c_prop) {
+      document.getElementById(c_prop).addEventListener('keyup', function (e) {
+        if (this.value >= 0 && this.value < 256) {
+          color[c_prop] = this.value;
+
+          // Is it a valid color?
+          if (/[0-9A-F]{6}$/i.test(rgb_to_hex(color.r, color.g, color.b))) {
+            color.hex = rgb_to_hex(color.r, color.g, color.b);
+            update();
+          }
+        }
+      });
+    });
+  };
+
+  var rgb_to_hex = function (r, g, b) {
+    r = parseInt(r);
+    r = ((r.toString(16).length == 1) ? '0' : '') + r.toString(16);
+
+    g = parseInt(g);
+    g = ((g.toString(16).length == 1) ? '0' : '') + g.toString(16);
+
+    b = parseInt(b);
+    b = ((b.toString(16).length == 1) ? '0' : '') + b.toString(16);
+
+    return r + g + b;
+  }
+
+  var hex_r = function (hex) {
+    return parseInt(hex.substr(0, 2), 16);
+  }
+  var hex_g = function (hex) {
+    return parseInt(hex.substr(2, 2), 16);
+  }
+  var hex_b = function (hex) {
+    return parseInt(hex.substr(4, 2), 16);
+  }
+
+  var transform = function (degree, first, g, b) {
+    if (g) {
+      var r = first;
+    } else {
+      var r = hex_r(first);
+      var g = hex_g(first);
+      var b = hex_b(first);
+    }
+
+    if (degree > 0) {
+      r = ((r + degree) > 255) ? 255 : r + degree;
+      g = ((g + degree) > 255) ? 255 : g + degree;
+      b = ((b + degree) > 255) ? 255 : b + degree;
+    } else {
+      r = ((r + degree) < 0) ? 0 : r + degree;
+      g = ((g + degree) < 0) ? 0 : g + degree;
+      b = ((b + degree) < 0) ? 0 : b + degree;
+    }
+
+    return rgb_to_hex(r, g, b);
+  }
+
+  var update = function () {
+    displays['color'].style.backgroundColor = '#' + color.hex;
+    displays['color'].style.borderColor = '#' + transform(-100, color.hex);
+
+    displays['hex'].value = '#' + color.hex;
+    displays['r'].value = color.r;
+    displays['g'].value = color.g;
+    displays['b'].value = color.b;
+
+    displays['lighter'].value = '#' + transform(30, color.hex);
+    displays['darker'].value = '#' + transform(-30, color.hex);
+  }
+  </script>
+  <style type="text/css">
+  body {
+    font-family: Helvetica, sans serif;
+    text-align: center;
+  }
+  #container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 50px auto 0px auto;
+  }
+
+  .subtitle {
+    color: #555;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  input.display {
+    font-size: 30px;
+  }
+
+  #main {
+    position: absolute;
+    top: 0px;
+    left: 180px;
+    width: 270px;
+    height: 100%;
+    font-size: 30px;
+  }
+  #main #color-display {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    border: 5px solid #ccc;
+    background-color: #eee;
+    margin: 0 auto;
+  }
+
+  #sidebar {
+    font-size: 30px;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    width: 230px;
+    height: 275px;
+    border-right: 2px solid #ccc;
+    padding-top: 125px;
+  }
+  #sidebar input {
+    outline: none;
+    font-size: 20px;
+    margin: 0px 0px 10px 0px;
+    padding: 5px;
+  }
+  #hex-wrapper {
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 21px;
+  }
+  #hex-wrapper input {
+    border: none;
+    padding: 0px;
+    margin-left: -5px;
+  }
+  #auto-wrapper {
+    font-size: 16px;
+  }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="sidebar">
+      <span id="hex-wrapper">
+        <label for="hex">#</label>
+        <input type="text" size="6" maxlength="7" id="hex" placeholder="hex" autofocus />
+      </span>
+      <br />
+      <input type="text" size="3" maxlength="3" id="r" placeholder="r" />
+      <input type="text" size="3" maxlength="3" id="g" placeholder="g" />
+      <input type="text" size="3" maxlength="3" id="b" placeholder="b" />
+      <div class="subtitle">enter a color in hex or rgb</div>
+    </div>
+
+    <div id="main">
+      <div id="color-display">&nbsp;</div>
+      <div class="subtitle">color</div>
+
+      <input class="display" size="7" id="hex-display" disabled />
+      <div class="subtitle">hex</div>
+
+      <input class="display" size="3" id="r-display" disabled>
+      <input class="display" size="3" id="g-display" disabled>
+      <input class="display" size="3" id="b-display" disabled>
+      <div class="subtitle">r, g, b</div>
+
+      <input class="display" size="7" id="lighter-display" disabled />
+      <div class="subtitle">lighter</div>
+
+      <input class="display" size="7" id="darker-display" disabled />
+      <div class="subtitle">darker</div>
+    </div>
+  </div>
+</body>
+</html>
