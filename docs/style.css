@@ -116,8 +116,16 @@ a {
 }
 .Card__content__projectItems {
   margin-top: 3px;
-  margin-left: 23px;
+  margin-left: 0px;
+  list-style-type: none;
+}
+.Card__content__projectItems img {
+  position: relative;
+  top: 1px;
+  left: -1px;
+  width: 14px;
+  height: 14px;
 }
 .Card__content__projectItems a:hover {
-  color: #555;
+  opacity: 0.7;
 }
