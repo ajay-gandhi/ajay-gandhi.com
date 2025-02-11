@@ -3,7 +3,7 @@
 This is the source code for my profile page at
 [http://ajay-gandhi.com](http://ajay-gandhi.com).
 
-Public content is under the `/docs` folder because GitHub Pages.
+Public content is under the `/public` folder.
 
 ## Contributions
 
